@@ -1,0 +1,22 @@
+*grillz.txt*	For Vim version 7.3	Last change: 2012-08-17
+
+
+			VIM REFERENCE MANUAL	by Barry Arthur
+
+
+Help on using grillz                                                    *grillz*
+
+1. Introduction				|grillz-intro|
+
+==============================================================================
+ 1. INTRODUCTION                                                  *grillz-intro*
+
+Grillz is an example VimPEG plugin demonstrating dynamic replacement of "["
+and "]" characters in an "if" expression with context suitable "(", ")", "{",
+"}", "[" or "]" as appropriate.
+
+NOTE: In its current form, this is very much a proof of concept only.
+
+==============================================================================
+
+ vim:tw=78:ts=8:ft=help:norl:

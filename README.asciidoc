@@ -1,0 +1,12 @@
+Grillz
+------
+
+__Flash your wicked grillz!__
+
+Dynamic, context aware replacement of ++[++ and ++]++ in ++if++
+expressions with ++(++, ++)++, ++{++, ++}++ where appropriate.
+
+NOTE: This is just a toy proof of concept demonstration using the
+VimPEG parser generator.
+
+**Dependends** on https://github.com/dahu/vimpeg[VimPEG]

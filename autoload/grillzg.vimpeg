@@ -1,0 +1,29 @@
+; Grill Expression Parser
+; if [ condition ] [ true_action ]  -->  if ( condition ) { true_action }
+
+; Parser options {{{1
+.skip_white   = true
+.namespace    = 'grillz'
+.parser_name  = 'grillzg#parser'
+.root_element = 'grillz'
+.ignore_case  = false
+.debug        = false
+.verbose      = 0
+
+grillz ::= open_condition | open_true_action | close_true_action | close_condition
+
+open_condition    ::= kw '\[' -> #open_condition
+close_condition   ::= kw '(' b_expr* '\]' -> #close_condition
+open_true_action  ::= kw '(' p_expr* ')' '\[' -> #open_true_action
+close_true_action ::= kw '(' p_expr* ')' '{' b_expr* '\]' -> #close_true_action
+
+balanced_b        ::= '\[' (!'\]' b_expr)* '\]'
+balanced_p        ::= '(' (!')' p_expr)* ')'
+
+b_expr            ::= balanced_b | non_b_char
+p_expr            ::= balanced_p | non_p_char
+
+non_b_char        ::= !'[\[\]]' '.'
+non_p_char        ::= !'[()]' '.'
+
+kw                ::= 'if'
